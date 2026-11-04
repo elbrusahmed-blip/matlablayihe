@@ -1,0 +1,13 @@
+# MATLAB plain text scripts
+*.m text
+
+# Do not apply line-ending conversions to proprietary MATLAB binaries
+*.mat binary
+*.mlx binary
+*.slx binary
+*.mdl binary
+*.mlapp binary
+*.sldd binary
+*.slxp binary
+*.fig binary
+*.p binary
