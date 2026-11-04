@@ -101,8 +101,7 @@ function build_GES20kW()
         [1185 75 1375 172],0.965,true);
     makeGain(model,'LCL Filter - avg', ...
         [1455 92 1605 160],0.995);
-    makeGain(model,'Circuit Breaker and Protection - avg', ...
-        [1695 75 1882 172],1,true);
+    makeBreaker(model,[1695 75 1882 172]);
     makeMeter(model,[1960 70 2150 184]);
 
     add_block('simulink/Sources/Constant',[model '/Grid_Healthy_1'], ...
@@ -262,4 +261,19 @@ function makeMeter(model,pos)
     L(p,'P_to_I_3phase/1','I_line_RMS/1');
     L(p,'V400/1','V_line_RMS/1');
     L(p,'F50/1','Frequency_Hz/1');
+end
+
+function makeBreaker(model,pos)
+% Functional grid-healthy interlock, not a physical protection relay.
+    p = [model '/Circuit Breaker and Protection - avg'];
+    add_block('simulink/Ports & Subsystems/Subsystem',p,'Position',pos);
+    resetSubsystem(p);
+    portIn(p,'P_in',1,75);
+    portIn(p,'Grid_healthy_0_or_1',2,190);
+    portOut(p,'P_out',1,75);
+    add_block('simulink/Math Operations/Product',[p '/Interlock'], ...
+        'Position',[200 82 255 133]);
+    L(p,'P_in/1','Interlock/1');
+    L(p,'Grid_healthy_0_or_1/1','Interlock/2');
+    L(p,'Interlock/1','P_out/1');
 end
