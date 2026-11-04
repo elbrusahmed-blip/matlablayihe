@@ -1,0 +1,50 @@
+# MATLAB autosave, local editor/session settings
+*.asv
+*.autosave
+*~
+*.m~
+*.mlapp~
+*.mlx~
+*.slx~
+*.sldd~
+*.slxp~
+*.mdl~
+*.mat~
+*.bak
+
+# MATLAB / Simulink build and generated artifacts
+slprj/
+sccprj/
+codegen/
+simulinkCache/
+*.slxc
+*.mexw64
+*.mexa64
+*.mexmaci64
+*.pdb
+*.obj
+*.o
+
+# MATLAB reports, build outputs, testing and editor caches
+coverage/
+html/
+build/
+dist/
+*.prof
+*.prj~
+*.tmp
+
+# Private local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.*
+!.secrets.example
+
+# Operating systems
+.DS_Store
+Thumbs.db
+desktop.ini
