@@ -16,3 +16,8 @@ xlabel('t (rad)');
 ylabel('sin(t)');
 title('MATLAB + GitHub: test ugurludur');
 fprintf('Nümunə skript uğurla icra edildi.\n');
+
+%% AI prompt integration test
+% GitHub-da uzaqdan elave edilmis yoxlama.
+fprintf('PROMPT TEST: GitHub-daki MATLAB kodu yenilendi.\n');
+fprintf('Novbeti test ucun prompt_test.m faylini isledin.\n');
